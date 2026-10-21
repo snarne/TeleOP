@@ -2,10 +2,14 @@
 
 ## 0 · Try it without hardware (5 minutes, any Linux or macOS machine)
 
+Needs Python 3.10+ and Node.js 18+. On macOS the built-in `python3` is 3.9, which fails
+with "editable mode currently requires a setuptools-based build"; install a newer Python
+(`brew install python@3.12 node`) and use it explicitly:
+
 ```bash
-git clone <this repo> teleop-station && cd teleop-station
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
+git clone https://github.com/snarne/TeleOP.git && cd TeleOP
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install --upgrade pip && pip install -e ".[dev]"
 (cd ui && npm ci && npm run build)
 station serve --sim            # → http://localhost:8000
 ```

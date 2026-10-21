@@ -182,9 +182,14 @@ Bring-up order, PC requirements and the configuration reference:
 Every device has a simulated twin, so the full application runs on any Linux, macOS or
 Windows machine for training and development:
 
+Needs Python 3.10 or newer (the `python3` built into macOS is 3.9: install a newer one with
+`brew install python@3.12` or from python.org) and Node.js 18+ for the web app.
+
 ```bash
-python3 -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]"
-station serve --sim
+python3.12 -m venv .venv && source .venv/bin/activate
+pip install --upgrade pip && pip install -e ".[dev]"
+(cd ui && npm ci && npm run build)
+station serve --sim            # then open http://localhost:8000
 ```
 
 ---
