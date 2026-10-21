@@ -1,0 +1,249 @@
+{
+  "spring": {
+    "rate_n_per_mm": 7.861,
+    "k_theta_nm_per_rad": 3.1443,
+    "spring_index_C": 5.11,
+    "wahl_factor": 1.303,
+    "preload_n": 2.36,
+    "preload_torque_nm": 0.0472,
+    "preload_finger_n": 1.05,
+    "compression_at_overload_mm": 4.897,
+    "length_at_overload_mm": 10.103,
+    "solid_length_mm": 9.45,
+    "margin_to_solid_mm": 0.653,
+    "force_at_overload_n": 38.5,
+    "finger_force_at_overload_n": 17.11,
+    "shear_stress_at_overload_mpa": 806.0
+  },
+  "mass": {
+    "printed": {
+      "housing_servo_half": {
+        "volume_cm3": 27.41,
+        "mass_g": 27.8
+      },
+      "housing_encoder_half": {
+        "volume_cm3": 24.93,
+        "mass_g": 25.3
+      },
+      "lever": {
+        "volume_cm3": 5.48,
+        "mass_g": 5.6
+      },
+      "blade": {
+        "volume_cm3": 3.39,
+        "mass_g": 3.4
+      },
+      "blade_skin": {
+        "volume_cm3": 0.4,
+        "mass_g": 0.4
+      },
+      "drive_disc": {
+        "volume_cm3": 1.36,
+        "mass_g": 1.4
+      },
+      "encoder_cover": {
+        "volume_cm3": 2.59,
+        "mass_g": 2.6
+      },
+      "button_cap_a": {
+        "volume_cm3": 0.22,
+        "mass_g": 0.2
+      },
+      "button_cap_b": {
+        "volume_cm3": 0.22,
+        "mass_g": 0.2
+      },
+      "mount_adapter": {
+        "volume_cm3": 10.66,
+        "mass_g": 10.8
+      }
+    },
+    "printed_total_g": 77.7,
+    "purchased": {
+      "XC330-M288-T servo + horn": 24.0,
+      "6700ZZ bearing": 2.3,
+      "MR63ZZ bearing": 0.3,
+      "\u00d83\u00d78 dowel pin": 0.45,
+      "Magnet \u00d86\u00d72.5 N52": 0.53,
+      "Compression spring": 0.35,
+      "AS5600 breakout": 1.8,
+      "Seeed XIAO RP2040": 3.0,
+      "Protoboard + 74LVC2G241 + passives": 6.0,
+      "2\u00d7 Omron D2F-01": 1.0,
+      "Screws, inserts (M2/M2.5)": 6.0,
+      "Wiring (USB pigtail in grip, JST leads)": 5.0,
+      "v1.1: LRA \u00d88 \u00d7 3.2 + tape": 0.9,
+      "v1.1: DRV2605L + passives on the protoboard": 0.4,
+      "v1.1: LRA leads (2 \u00d7 30 AWG, 0.25 m)": 0.6
+    },
+    "purchased_total_g": 52.6,
+    "total_g": 130.3,
+    "target_g": 135.0
+  },
+  "stops": {
+    "open stop (lever vs housing)": {
+      "distance_at_stop_mm": 0.2,
+      "overlap_1deg_past_mm3": 0.34,
+      "ok": true
+    },
+    "closed stop (lever vs housing)": {
+      "distance_at_stop_mm": 0.2,
+      "overlap_1deg_past_mm3": 0.24,
+      "ok": true
+    },
+    "SEA backstop (tab vs lever)": {
+      "distance_at_stop_mm": 0.0,
+      "overlap_0.5deg_past_mm3": 8.92,
+      "ok": true
+    },
+    "SEA overload rim (tab vs lever)": {
+      "distance_at_stop_mm": 0.0,
+      "overlap_0.5deg_past_mm3": 1.87,
+      "ok": true
+    }
+  },
+  "interference": {
+    "states": [
+      {
+        "phi": 0.0,
+        "delta": 0.0,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 0.0,
+        "delta": 6.6,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 0.0,
+        "delta": 13.2,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 10.0,
+        "delta": 0.0,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 10.0,
+        "delta": 6.6,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 10.0,
+        "delta": 13.2,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 20.0,
+        "delta": 0.0,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 20.0,
+        "delta": 6.6,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 20.0,
+        "delta": 13.2,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 30.0,
+        "delta": 0.0,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 30.0,
+        "delta": 6.6,
+        "pairs_checked": 186
+      },
+      {
+        "phi": 30.0,
+        "delta": 13.2,
+        "pairs_checked": 186
+      }
+    ],
+    "collisions": [],
+    "min_clearance": {}
+  },
+  "clearance_mm": {
+    "lever \u2194 housing_servo_half": 9.6,
+    "lever \u2194 housing_encoder_half": 0.2,
+    "lever \u2194 servo_xc330": 6.6,
+    "blade \u2194 housing_servo_half": 6.503,
+    "blade \u2194 housing_encoder_half": 2.185,
+    "blade \u2194 servo_xc330": 14.437,
+    "drive_disc \u2194 housing_servo_half": 6.087,
+    "drive_disc \u2194 housing_encoder_half": 1.027,
+    "drive_disc \u2194 servo_xc330": 3.0
+  },
+  "wall": {
+    "housing_servo_half": {
+      "samples": 5719,
+      "min_mm": 0.06,
+      "p1_mm": 1.0,
+      "p5_mm": 1.8,
+      "median_mm": 2.2,
+      "frac_below_1.5": 0.0315
+    },
+    "housing_encoder_half": {
+      "samples": 5713,
+      "min_mm": 0.16,
+      "p1_mm": 1.55,
+      "p5_mm": 1.76,
+      "median_mm": 2.2,
+      "frac_below_1.5": 0.0096
+    },
+    "lever": {
+      "samples": 5838,
+      "min_mm": 0.48,
+      "p1_mm": 1.53,
+      "p5_mm": 1.65,
+      "median_mm": 5.4,
+      "frac_below_1.5": 0.0058
+    },
+    "blade": {
+      "samples": 5606,
+      "min_mm": 0.12,
+      "p1_mm": 1.0,
+      "p5_mm": 1.85,
+      "median_mm": 4.72,
+      "frac_below_1.5": 0.0337
+    },
+    "drive_disc": {
+      "samples": 5850,
+      "min_mm": 0.6,
+      "p1_mm": 1.43,
+      "p5_mm": 1.8,
+      "median_mm": 2.8,
+      "frac_below_1.5": 0.0161
+    },
+    "encoder_cover": {
+      "samples": 5961,
+      "min_mm": 0.4,
+      "p1_mm": 0.9,
+      "p5_mm": 1.6,
+      "median_mm": 2.4,
+      "frac_below_1.5": 0.027
+    },
+    "mount_adapter": {
+      "samples": 5838,
+      "min_mm": 0.15,
+      "p1_mm": 1.5,
+      "p5_mm": 2.6,
+      "median_mm": 6.44,
+      "frac_below_1.5": 0.0094
+    },
+    "blade_skin": {
+      "samples": 5494,
+      "min_mm": 0.99,
+      "p1_mm": 0.99,
+      "p5_mm": 1.0,
+      "median_mm": 1.0,
+      "frac_below_1.5": 0.9667
+    }
+  },
+  "generated": "2026-10-20 21:44:04"
+}

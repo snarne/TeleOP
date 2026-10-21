@@ -1,0 +1,136 @@
+# Teleop Station — hardware configuration
+#
+# Edit the CHANGE_ME values for your cell. Run `station doctor` after every change:
+# it checks each device listed here and tells you what is wrong and how to fix it.
+# `station serve --sim` ignores the hardware backends and simulates every device.
+
+station:
+  name: "Teleop Station 1"
+  data_root: "~/teleop_data"        # recordings/, datasets/, station.db live here
+
+runtime:
+  workers: process                  # process (production) | thread (debugging)
+  control_hz: 200                   # teleop loop rate per arm
+  state_hz: 20                      # UI update rate
+
+arms:
+  left:
+    power_channel: left_follower
+    leader_power_channel: left_leader
+    follower:
+      backend: i2rt
+      can_channel: can_follower_l   # persistent CAN name (scripts/udev/README.md)
+      arm_type: yam                 # yam | yam_pro | yam_ultra | yam_ultra_2 | big_yam
+      gripper_type: linear_4310
+      rest_pose: [0.0, 0.05, 0.05, 0.0, 0.0, 0.0]
+      max_joint_speed: 3.0
+      engage_speed: 0.6
+      max_tracking_error: 0.6
+    leader:
+      backend: dynamixel
+      port: /dev/serial/by-id/CHANGE_ME_left_leader_u2d2   # ls /dev/serial/by-id/
+      baudrate: 1000000
+      joint_ids: [1, 2, 3, 4, 5, 6]
+      joint_signs: [1, 1, 1, 1, 1, 1]  # verified and corrected by the calibration wizard
+      calibration_file: calibration/leader_left.yaml
+      check_pose: [0.0, 1.0472, 1.0472, 0.0, 0.0, 0.0]
+    trigger:
+      backend: dynamixel_legacy     # hgm once the Haptic Grip Module is built
+      port: /dev/hgm_left
+      legacy_id: 7
+      legacy_open_ticks: 2048
+      legacy_closed_ticks: 2700
+      calibration_file: calibration/trigger_left.yaml
+    gripper_force:
+      gain_n_per_nm: 68.4
+      tau_friction_nm: 0.12
+      calibration_file: calibration/gripper_left.yaml
+    fingertips:                     # follower fingertip force sensors (docs/hardware/fingertip-sensor.md)
+      backend: none                 # fgs once built; until then grip force is estimated from motor torque
+      port: /dev/fgs_left
+      calibration_file: calibration/fingertips_left.yaml
+
+  right:
+    power_channel: right_follower
+    leader_power_channel: right_leader
+    follower:
+      backend: i2rt
+      can_channel: can_follower_r
+      arm_type: yam
+      gripper_type: linear_4310
+      rest_pose: [0.0, 0.05, 0.05, 0.0, 0.0, 0.0]
+    leader:
+      backend: dynamixel
+      port: /dev/serial/by-id/CHANGE_ME_right_leader_u2d2
+      baudrate: 1000000
+      joint_ids: [1, 2, 3, 4, 5, 6]
+      joint_signs: [1, 1, 1, 1, 1, 1]
+      calibration_file: calibration/leader_right.yaml
+      check_pose: [0.0, 1.0472, 1.0472, 0.0, 0.0, 0.0]
+    trigger:
+      backend: dynamixel_legacy
+      port: /dev/hgm_right
+      legacy_id: 7
+      calibration_file: calibration/trigger_right.yaml
+    gripper_force:
+      calibration_file: calibration/gripper_right.yaml
+    fingertips:
+      backend: none
+      port: /dev/fgs_right
+      calibration_file: calibration/fingertips_right.yaml
+
+cameras:
+  left_wrist:
+    label: "Left wrist"
+    backend: opencv                 # opencv (any UVC webcam) | realsense
+    device: /dev/v4l/by-id/CHANGE_ME_left_wrist-video-index0
+    width: 640
+    height: 480
+    fps: 30
+    fourcc: MJPG
+    attached_to: left
+    calibration_file: calibration/camera_left_wrist.yaml
+  overhead:
+    label: "Overhead"
+    backend: opencv
+    device: /dev/v4l/by-id/CHANGE_ME_overhead-video-index0
+    width: 640
+    height: 480
+    fps: 30
+    fourcc: MJPG
+    calibration_file: calibration/camera_overhead.yaml
+  right_wrist:
+    label: "Right wrist"
+    backend: opencv
+    device: /dev/v4l/by-id/CHANGE_ME_right_wrist-video-index0
+    width: 640
+    height: 480
+    fps: 30
+    fourcc: MJPG
+    attached_to: right
+    calibration_file: calibration/camera_right_wrist.yaml
+
+power:
+  backend: none                     # numato | lcus | modbus_tcp | none
+  port: /dev/serial/by-id/CHANGE_ME_numato_relay
+  channels:
+    - { id: left_follower,  label: "Left follower 24 V",  relay: 0 }
+    - { id: right_follower, label: "Right follower 24 V", relay: 1 }
+    - { id: left_leader,    label: "Left leader 5 V",     relay: 2 }   # K1–K4 as in docs/hardware/electronics.md
+    - { id: right_leader,   label: "Right leader 5 V",    relay: 3 }
+    - { id: cameras,        label: "Camera USB hub",      relay: 4 }
+  estop_input: 0                    # relay-board GPIO wired to the e-stop aux contact
+  estop_ok_level: 0                 # NC3 to GND with pull-up: released = low (docs/hardware/electronics.md)
+  boot_wait_s: 3.0
+
+recording:
+  video_codec: libx264
+  video_crf: 23
+  video_preset: ultrafast
+  preview_fps: 15
+  telemetry_compression: zstd
+
+export:
+  fps: 30
+  root: datasets
+  video_codec: h264

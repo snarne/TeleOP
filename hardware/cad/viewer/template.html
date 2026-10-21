@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HGM 3D Viewer</title>
+<style>
+  :root { --bg:#f4f6f8; --panel:#ffffff; --ink:#1d232b; --muted:#66707c; --line:#dde2e8; --accent:#e8742c; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#14171b; --panel:#1d2127; --ink:#e7eaee; --muted:#98a2ae; --line:#2c323a; } }
+  :root[data-theme="dark"] { --bg:#14171b; --panel:#1d2127; --ink:#e7eaee; --muted:#98a2ae; --line:#2c323a; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  #app { display:grid; grid-template-columns: 300px 1fr; height:100%; }
+  aside { background:var(--panel); border-right:1px solid var(--line); padding:16px; overflow:auto; }
+  h1 { font-size:16px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:12px; margin-bottom:14px; }
+  label.row { display:flex; align-items:center; gap:8px; padding:3px 0; cursor:pointer; }
+  .grp { margin-top:14px; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  input[type=range] { width:100%; accent-color: var(--accent); }
+  .ctl { margin:10px 0; }
+  .ctl .lbl { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); }
+  .swatch { width:10px; height:10px; border-radius:2px; display:inline-block; }
+  #view { position:relative; }
+  canvas { display:block; }
+  #hint { position:absolute; bottom:10px; right:14px; color:var(--muted); font-size:12px; }
+  button { background:var(--bg); color:var(--ink); border:1px solid var(--line); border-radius:6px; padding:5px 9px; cursor:pointer; }
+  @media (max-width: 760px) { #app { grid-template-columns: 1fr; grid-template-rows: 1fr 45%; } aside { order:2; border-right:0; border-top:1px solid var(--line); } }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside>
+    <h1>Haptic Grip Module</h1>
+    <div class="sub">Series-elastic haptic trigger for the leader arm. Drag to orbit, scroll to zoom.</div>
+    <div class="ctl"><div class="lbl"><span>Explode</span><span id="exv">0%</span></div><input id="explode" type="range" min="0" max="100" value="0"></div>
+    <div class="ctl"><div class="lbl"><span>Trigger angle φ</span><span id="phv">0°</span></div><input id="phi" type="range" min="0" max="30" step="0.5" value="0"></div>
+    <div class="ctl"><div class="lbl"><span>Spring deflection δ</span><span id="dlv">0°</span></div><input id="delta" type="range" min="0" max="13.2" step="0.2" value="0"></div>
+    <div class="ctl"><label class="row"><input id="xray" type="checkbox"> X-ray housing</label></div>
+    <div class="ctl"><button id="reset">Reset view</button> <button id="theme">Theme</button></div>
+    <div id="parts"></div>
+  </aside>
+  <div id="view"><div id="hint">φ rotates the lever, δ rotates the servo-side disc relative to it</div></div>
+</div>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+               "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+const META = __PART_META__;
+const GLB = "__GLB_BASE64__";
+const LEVER = ["lever", "blade", "bearing_mr63zz", "magnet_6x2.5", "spring"];
+const DISC = ["drive_disc", "servo_horn", "pin_3x8"];
+
+const view = document.getElementById("view");
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+view.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 1, 1, 5000);
+camera.up.set(0, 0, 1);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+scene.add(new THREE.HemisphereLight(0xffffff, 0x445566, 1.1));
+const key = new THREE.DirectionalLight(0xffffff, 1.6); key.position.set(200, -300, 400); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.6); rim.position.set(-300, 250, 100); scene.add(rim);
+
+function setBg() {
+  const dark = document.documentElement.dataset.theme === "dark" ||
+    (!document.documentElement.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+  scene.background = new THREE.Color(dark ? 0x14171b : 0xf4f6f8);
+}
+setBg();
+
+function resetView() { camera.position.set(190, 260, 110); controls.target.set(-10, 0, -35); controls.update(); }
+resetView();
+
+function resize() {
+  const r = view.getBoundingClientRect();
+  renderer.setSize(r.width, r.height); camera.aspect = r.width / r.height; camera.updateProjectionMatrix();
+}
+addEventListener("resize", resize); resize();
+
+const nodes = {};
+const bytes = Uint8Array.from(atob(GLB), c => c.charCodeAt(0));
+new GLTFLoader().parse(bytes.buffer, "", (gltf) => {
+  gltf.scene.traverse(o => {
+    if (o.isMesh) { o.material.side = THREE.DoubleSide; }
+    if (META[o.name] && !nodes[o.name]) nodes[o.name] = o;
+  });
+  // glTF is Y-up; our CAD is Z-up in mm. Undo the exporter's axis swap if present.
+  scene.add(gltf.scene);
+  buildList(); update();
+}, (e) => { document.getElementById("hint").textContent = "Failed to load model: " + e; });
+
+function buildList() {
+  const box = document.getElementById("parts");
+  const groups = { printed: "Printed parts", purchased: "Purchased parts", context: "Leader-arm context" };
+  for (const [g, title] of Object.entries(groups)) {
+    const h = document.createElement("div"); h.className = "grp"; h.textContent = title; box.appendChild(h);
+    for (const [name, m] of Object.entries(META)) {
+      if (m.group !== g || !nodes[name]) continue;
+      const row = document.createElement("label"); row.className = "row";
+      const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = true;
+      cb.onchange = () => { nodes[name].visible = cb.checked; };
+      const sw = document.createElement("span"); sw.className = "swatch";
+      const mesh = nodes[name].isMesh ? nodes[name] : nodes[name].children.find(c => c.isMesh);
+      if (mesh) sw.style.background = "#" + mesh.material.color.getHexString();
+      row.append(cb, sw, document.createTextNode(" " + m.label + (m.material ? " · " + m.material : "")));
+      box.appendChild(row);
+    }
+  }
+}
+
+const $ = (id) => document.getElementById(id);
+function update() {
+  const k = $("explode").value / 100, phi = THREE.MathUtils.degToRad(+$("phi").value),
+        dl = THREE.MathUtils.degToRad(+$("delta").value);
+  $("exv").textContent = Math.round(k * 100) + "%"; $("phv").textContent = $("phi").value + "°"; $("dlv").textContent = $("delta").value + "°";
+  for (const [name, n] of Object.entries(nodes)) {
+    const e = META[name].explode || [0, 0, 0];
+    n.position.set(e[0] * k, e[1] * k, e[2] * k);
+    const ang = LEVER.includes(name) ? phi : DISC.includes(name) ? phi - dl : 0;
+    n.rotation.set(0, ang, 0);
+    const xr = $("xray").checked && (name.startsWith("housing") || name === "encoder_cover");
+    n.traverse(o => { if (o.isMesh) { o.material.transparent = xr; o.material.opacity = xr ? 0.18 : 1; o.material.depthWrite = !xr; } });
+  }
+}
+for (const id of ["explode", "phi", "delta", "xray"]) $(id).addEventListener("input", update);
+$("reset").onclick = resetView;
+$("theme").onclick = () => { const r = document.documentElement; r.dataset.theme = r.dataset.theme === "dark" ? "light" : "dark"; setBg(); };
+(function loop() { controls.update(); renderer.render(scene, camera); requestAnimationFrame(loop); })();
+</script>
+</body>
+</html>

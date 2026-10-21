@@ -1,0 +1,389 @@
+{
+ "proto": 1,
+ "crc": [
+  {
+   "data": "",
+   "crc": 65535
+  },
+  {
+   "data": "313233343536373839",
+   "crc": 10673
+  },
+  {
+   "data": "00",
+   "crc": 57840
+  },
+  {
+   "data": "ffffffffffffffff",
+   "crc": 38879
+  },
+  {
+   "data": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+   "crc": 64815
+  }
+ ],
+ "cobs": [
+  {
+   "raw": "",
+   "encoded": "01"
+  },
+  {
+   "raw": "00",
+   "encoded": "0101"
+  },
+  {
+   "raw": "0000",
+   "encoded": "010101"
+  },
+  {
+   "raw": "11220033",
+   "encoded": "0311220233"
+  },
+  {
+   "raw": "1100",
+   "encoded": "021101"
+  },
+  {
+   "raw": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe",
+   "encoded": "ff0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe"
+  },
+  {
+   "raw": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff",
+   "encoded": "ff0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe02ff"
+  },
+  {
+   "raw": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe",
+   "encoded": "01ff0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe"
+  },
+  {
+   "raw": "0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe00",
+   "encoded": "ff0102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfe0101"
+  },
+  {
+   "raw": "0000001a0000599e000000810011000000a67c000000000225a90014000000f00000ac006b002e2800c80bc47f9600c900714c006b0000d561",
+   "encoded": "010101021a0103599e010102810211010103a67c010101040225a90214010102f00102ac026b032e2806c80bc47f9602c903714c026b0103d561"
+  },
+  {
+   "raw": "00009500dacc001500e60000cb4f1100b1001a3200d2008400",
+   "encoded": "0101029503dacc021502e60104cb4f1102b1031a3202d2028401"
+  },
+  {
+   "raw": "1000800000000000b700000000000b6536f08a6d0000c4486700b4004d0ee13c2b0013666e30a1",
+   "encoded": "021002800101010102b701010101070b6536f08a6d0104c4486702b4064d0ee13c2b0613666e30a1"
+  },
+  {
+   "raw": "49a80085ce00ce0007f900e4fbc14d9100830057ea",
+   "encoded": "0349a80385ce02ce0307f906e4fbc14d9102830357ea"
+  },
+  {
+   "raw": "000000420000000000fe8500d943000000af002a00000000eadb220b12c4000000005997000800d56e260000de980000000000ad00f15d4a693c03",
+   "encoded": "01010102420101010103fe8503d943010102af022a01010107eadb220b12c4010101035997020804d56e260103de980101010102ad07f15d4a693c03"
+  },
+  {
+   "raw": "fd00008900535d000000f80072005b88c2d484ba00b7001c0000cf0056f5b7009cad52008b00009c2d0000290000cf6d58fb00610399e900009d9c6b86d065b000d600e8003c006f070000",
+   "encoded": "02fd01028903535d010102f80272075b88c2d484ba02b7021c0102cf0456f5b7049cad52028b01039c2d0102290105cf6d58fb05610399e901089d9c6b86d065b002d602e8023c036f070101"
+  }
+ ],
+ "packets": [
+  {
+   "name": "setpoint_default",
+   "type": 1,
+   "seq": 0,
+   "fields": {
+    "mode": 1,
+    "haptic_n": 0.0,
+    "spring_n": 1.5,
+    "spring_min_n": 1.2,
+    "damping": 0.02,
+    "max_n": 12.0,
+    "pos_cmd": 0.0
+   },
+   "body": "01000000000000c03f9a99993f0ad7a33c0000404100000000",
+   "frame": "02010101020101010101010bc03f9a99993f0ad7a33c0103404101010103c2d700"
+  },
+  {
+   "name": "setpoint_render",
+   "type": 1,
+   "seq": 513,
+   "fields": {
+    "mode": 2,
+    "haptic_n": 7.25,
+    "spring_n": 1.5,
+    "spring_min_n": 1.2,
+    "damping": 0.02,
+    "max_n": 12.0,
+    "pos_cmd": 0.0
+   },
+   "body": "020000e8400000c03f9a99993f0ad7a33c0000404100000000",
+   "frame": "0201040102020103e840010bc03f9a99993f0ad7a33c01034041010101032c0400"
+  },
+  {
+   "name": "setpoint_position",
+   "type": 1,
+   "seq": 65535,
+   "fields": {
+    "mode": 3,
+    "haptic_n": 0.0,
+    "spring_n": 0.0,
+    "spring_min_n": 0.0,
+    "damping": 0.0,
+    "max_n": 5.0,
+    "pos_cmd": 0.5
+   },
+   "body": "03000000000000000000000000000000000000a0400000003f",
+   "frame": "020104ffff03010101010101010101010101010101010103a0400101043ff39a00"
+  },
+  {
+   "name": "set_param_k_theta",
+   "type": 2,
+   "seq": 7,
+   "fields": {
+    "param": 1,
+    "value": 3.144
+   },
+   "body": "014c374940",
+   "frame": "0202020708014c3749400bf300"
+  },
+  {
+   "name": "set_param_preload",
+   "type": 2,
+   "seq": 8,
+   "fields": {
+    "param": 13,
+    "value": 0.0472
+   },
+   "body": "0dca54413d",
+   "frame": "02020208080dca54413dc0ec00"
+  },
+  {
+   "name": "command_tare",
+   "type": 4,
+   "seq": 9,
+   "fields": {
+    "cmd": 1
+   },
+   "body": "01",
+   "frame": "020402090401ba1600"
+  },
+  {
+   "name": "led_cyan_pulse",
+   "type": 6,
+   "seq": 10,
+   "fields": {
+    "r": 0,
+    "g": 160,
+    "b": 255,
+    "pattern": 2
+   },
+   "body": "00a0ff02",
+   "frame": "0206020a0106a0ff02d6a900"
+  },
+  {
+   "name": "ping",
+   "type": 5,
+   "seq": 11,
+   "fields": {},
+   "body": "",
+   "frame": "0205020b037fe400"
+  },
+  {
+   "name": "telemetry",
+   "type": 129,
+   "seq": 40000,
+   "fields": {
+    "t_us": 123456789,
+    "pos": 0.4375,
+    "vel": -1.5,
+    "force_op_n": 6.25,
+    "force_cmd_n": 6.5,
+    "lever_rad": 0.2291,
+    "servo_rad": 0.1102,
+    "servo_ma": -812,
+    "buttons": 3,
+    "mode": 2,
+    "status": 135,
+    "loop_us_max": 412
+   },
+   "body": "15cd5b070000e03e0000c0bf0000c8400000d04031996a3e8ab0e13dd4fc030287009c01",
+   "frame": "028107409c15cd5b070103e03e0103c0bf0103c8400110d04031996a3e8ab0e13dd4fc030287059c014ad400"
+  },
+  {
+   "name": "ack",
+   "type": 130,
+   "seq": 41,
+   "fields": {
+    "req_type": 2,
+    "req_seq": 7,
+    "result": 0,
+    "value": 3.144
+   },
+   "body": "020700004c374940",
+   "frame": "0282022903020701074c374940583c00"
+  },
+  {
+   "name": "info",
+   "type": 132,
+   "seq": 1,
+   "fields": {
+    "proto": 1,
+    "fw_major": 1,
+    "fw_minor": 0,
+    "fw_patch": 0,
+    "hw_rev": 1,
+    "rx_errors": 3,
+    "serial": "E6614103E7452D2F"
+   },
+   "body": "010001000001030045363631343130334537343532443246",
+   "frame": "02840201020102010103010313453636313431303345373435324432467d5500"
+  },
+  {
+   "name": "cue_tap",
+   "type": 7,
+   "seq": 12,
+   "fields": {
+    "waveform": 1,
+    "amplitude": 220,
+    "duration_ms": 20
+   },
+   "body": "01dc1400",
+   "frame": "0207020c0401dc1403335400"
+  },
+  {
+   "name": "cue_slip",
+   "type": 7,
+   "seq": 13,
+   "fields": {
+    "waveform": 2,
+    "amplitude": 180,
+    "duration_ms": 60
+   },
+   "body": "02b43c00",
+   "frame": "0207020d0402b43c03ca3700"
+  },
+  {
+   "name": "cue_release",
+   "type": 7,
+   "seq": 14,
+   "fields": {
+    "waveform": 3,
+    "amplitude": 120,
+    "duration_ms": 12
+   },
+   "body": "03780c00",
+   "frame": "0207020e0403780c039dd900"
+  },
+  {
+   "name": "cue_buzz_default_duration",
+   "type": 7,
+   "seq": 15,
+   "fields": {
+    "waveform": 4,
+    "amplitude": 255,
+    "duration_ms": 0
+   },
+   "body": "04ff0000",
+   "frame": "0207020f0304ff0103b73600"
+  },
+  {
+   "name": "telemetry_lra_ok",
+   "type": 129,
+   "seq": 7,
+   "fields": {
+    "t_us": 424242,
+    "pos": 0.75,
+    "vel": 0.25,
+    "force_op_n": 9.5,
+    "force_cmd_n": 9.75,
+    "lever_rad": 0.3927,
+    "servo_rad": 0.2412,
+    "servo_ma": 1105,
+    "buttons": 0,
+    "mode": 2,
+    "status": 647,
+    "loop_us_max": 377
+   },
+   "body": "327906000000403f0000803e0000184100001c41f90fc93e22fd763e5104000287027901",
+   "frame": "0281020704327906010103403f0103803e01031841010d1c41f90fc93e22fd763e5104080287027901937f00"
+  },
+  {
+   "name": "fingertip",
+   "type": 145,
+   "seq": 300,
+   "fields": {
+    "t_us": 987654321,
+    "force_a_n": 12.5,
+    "force_b_n": -0.375,
+    "hf_a_n": 0.0625,
+    "hf_b_n": 1.75,
+    "status": 11,
+    "loop_us_max": 128
+   },
+   "body": "b168de3a000048410000c0be0000803d0000e03f0b008000",
+   "frame": "0291072c01b168de3a010348410103c0be0103803d0104e03f0b028003136600"
+  },
+  {
+   "name": "fingertip_zero",
+   "type": 145,
+   "seq": 0,
+   "fields": {
+    "t_us": 0,
+    "force_a_n": 0.0,
+    "force_b_n": 0.0,
+    "hf_a_n": 0.0,
+    "hf_b_n": 0.0,
+    "status": 0,
+    "loop_us_max": 0
+   },
+   "body": "000000000000000000000000000000000000000000000000",
+   "frame": "02910101010101010101010101010101010101010101010101010101037a9900"
+  },
+  {
+   "name": "info_fgs",
+   "type": 132,
+   "seq": 2,
+   "fields": {
+    "proto": 1,
+    "fw_major": 1,
+    "fw_minor": 0,
+    "fw_patch": 0,
+    "hw_rev": 17,
+    "rx_errors": 0,
+    "serial": "E66138935F2B6A27"
+   },
+   "body": "010001000011000045363631333839333546324236413237",
+   "frame": "02840202020102010102110113453636313338393335463242364132375ae200"
+  },
+  {
+   "name": "set_param_fgs_scale_a",
+   "type": 2,
+   "seq": 3,
+   "fields": {
+    "param": 20,
+    "value": 2.4e-06
+   },
+   "body": "14b00f2136",
+   "frame": "020202030814b00f2136693500"
+  },
+  {
+   "name": "set_param_fgs_band_hi",
+   "type": 2,
+   "seq": 4,
+   "fields": {
+    "param": 25,
+    "value": 400.0
+   },
+   "body": "190000c843",
+   "frame": "0202020402190105c843af5400"
+  },
+  {
+   "name": "command_fgs_tare",
+   "type": 4,
+   "seq": 5,
+   "fields": {
+    "cmd": 1
+   },
+   "body": "01",
+   "frame": "020402050401db6300"
+  }
+ ]
+}

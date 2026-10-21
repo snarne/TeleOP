@@ -1,0 +1,22 @@
+# Teleop Station udev rules: copy to /etc/udev/rules.d/ (scripts/setup_ubuntu.sh does it).
+# Reload with: sudo udevadm control --reload-rules && sudo udevadm trigger
+
+# --- Dynamixel U2D2 (FTDI FT232H): 1 ms latency timer.
+# The FTDI default of 16 ms caps Dynamixel sync-reads at ~60 Hz; 1 ms allows the 200 Hz loop.
+ACTION=="add", SUBSYSTEM=="usb-serial", DRIVER=="ftdi_sio", ATTR{latency_timer}="1"
+
+# --- Haptic Grip Modules (Seeed XIAO RP2040, USB CDC). Map each module's serial number to a
+# stable name. Find the serial with:  udevadm info -a -n /dev/ttyACM0 | grep '{serial}'
+# then uncomment and edit:
+#SUBSYSTEM=="tty", ATTRS{idVendor}=="2e8a", ATTRS{serial}=="E6614103E7XXXXXX", SYMLINK+="hgm_left",  MODE="0660", GROUP="dialout"
+#SUBSYSTEM=="tty", ATTRS{idVendor}=="2e8a", ATTRS{serial}=="E6614103E7YYYYYY", SYMLINK+="hgm_right", MODE="0660", GROUP="dialout"
+
+# --- Numato USB relay module (CDC). Optional stable name.
+#SUBSYSTEM=="tty", ATTRS{idVendor}=="2a19", SYMLINK+="relay_board", MODE="0660", GROUP="dialout"
+
+# --- CAN adapters (CANable, candleLight firmware). Persistent names, matching I2RT's convention.
+# Find serials with:  udevadm info -a -p /sys/class/net/can0 | grep -i serial
+#SUBSYSTEM=="net", ACTION=="add", ATTRS{serial}=="004E00275548501220373234", NAME="can_follower_l"
+#SUBSYSTEM=="net", ACTION=="add", ATTRS{serial}=="0031005F5548501220373234", NAME="can_follower_r"
+# Bring every CAN interface up at 1 Mbit/s as soon as it appears:
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="can*", RUN+="/usr/sbin/ip link set %k up type can bitrate 1000000"

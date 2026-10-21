@@ -1,0 +1,8 @@
+{
+  "name": "hgm_protocol",
+  "version": "1.1.0",
+  "description": "HGM / FGS wire protocol (COBS + CRC-16/CCITT-FALSE framing, packet codecs). No Arduino dependencies.",
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {"srcDir": ".", "includeDir": "."}
+}

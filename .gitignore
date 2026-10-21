@@ -1,0 +1,20 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+# station data (recordings, datasets, db) never goes in git
+.sim_data/
+teleop_data/
+third_party/
+# ui
+ui/node_modules/
+ui/dist/
+# cad build intermediates (renders + STEP/STL in hardware/cad/out are committed)
+hardware/firmware/**/.pio/
+hardware/firmware/**/build/
+*.log
+.DS_Store
+hardware/firmware/**/test/native/test_main

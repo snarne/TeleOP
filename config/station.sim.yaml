@@ -1,0 +1,46 @@
+# Fully simulated station: two arms with haptic grip modules, three cameras, relay board.
+# `station serve --config config/station.sim.yaml` (or just `station serve --sim`).
+
+station:
+  name: "Teleop Station (sim)"
+  data_root: "./.sim_data"
+  sim: true
+
+runtime:
+  workers: process
+  control_hz: 200
+  state_hz: 20
+
+arms:
+  left:
+    power_channel: left_follower
+    leader_power_channel: left_leader
+    follower: { backend: sim, can_channel: can_follower_l }
+    leader: { backend: sim, calibration_file: calibration/leader_left.yaml }
+    trigger: { backend: sim, calibration_file: calibration/trigger_left.yaml }
+    gripper_force: { calibration_file: calibration/gripper_left.yaml }
+    fingertips: { backend: sim }
+  right:
+    power_channel: right_follower
+    leader_power_channel: right_leader
+    follower: { backend: sim, can_channel: can_follower_r }
+    leader: { backend: sim, calibration_file: calibration/leader_right.yaml }
+    trigger: { backend: sim, calibration_file: calibration/trigger_right.yaml }
+    gripper_force: { calibration_file: calibration/gripper_right.yaml }
+    fingertips: { backend: sim }
+
+cameras:
+  left_wrist: { label: "Left wrist", backend: sim, attached_to: left, calibration_file: calibration/camera_left_wrist.yaml }
+  overhead: { label: "Overhead", backend: sim, calibration_file: calibration/camera_overhead.yaml }
+  right_wrist: { label: "Right wrist", backend: sim, attached_to: right, calibration_file: calibration/camera_right_wrist.yaml }
+
+power:
+  backend: sim
+  channels:
+    - { id: left_follower,  label: "Left follower 24 V",  relay: 0 }
+    - { id: right_follower, label: "Right follower 24 V", relay: 1 }
+    - { id: left_leader,    label: "Left leader 5 V",     relay: 2 }   # K1–K4 as in docs/hardware/electronics.md
+    - { id: right_leader,   label: "Right leader 5 V",    relay: 3 }
+    - { id: cameras,        label: "Camera USB hub",      relay: 4 }
+  estop_input: 0
+  boot_wait_s: 0.5

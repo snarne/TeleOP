@@ -1,0 +1,226 @@
+{
+ "parts": {
+  "fgs_finger": {
+   "material": "7075-T6 (CNC + wire EDM)",
+   "frame": "finger",
+   "volume_cm3": 16.12,
+   "mass_g": 45.3,
+   "bbox_mm": [
+    33.0,
+    22.2,
+    74.2
+   ],
+   "note": "machined; flexure profile wire-EDM through x"
+  },
+  "fgs_pad": {
+   "material": "TPU 85A",
+   "frame": "finger",
+   "volume_cm3": 0.248,
+   "mass_g": 0.3,
+   "bbox_mm": [
+    11.5,
+    1.5,
+    17.4
+   ],
+   "note": "print ridges up, 0.1 mm layers"
+  },
+  "fgs_gauge_cover": {
+   "material": "PETG",
+   "frame": "finger",
+   "volume_cm3": 1.167,
+   "mass_g": 1.5,
+   "bbox_mm": [
+    15.0,
+    8.7,
+    36.5
+   ],
+   "note": "print outer face down"
+  },
+  "fgs_cable_clip": {
+   "material": "PETG",
+   "frame": "finger",
+   "volume_cm3": 0.08,
+   "mass_g": 0.1,
+   "bbox_mm": [
+    10.5,
+    1.5,
+    5.5
+   ],
+   "note": "print flat"
+  },
+  "fgs_enclosure_base": {
+   "material": "PETG",
+   "frame": "gripper",
+   "volume_cm3": 8.023,
+   "mass_g": 10.2,
+   "bbox_mm": [
+    45.1,
+    77.2,
+    30.0
+   ],
+   "note": "print open side up"
+  },
+  "fgs_enclosure_lid": {
+   "material": "PETG",
+   "frame": "gripper",
+   "volume_cm3": 1.774,
+   "mass_g": 2.3,
+   "bbox_mm": [
+    3.1,
+    34.0,
+    30.0
+   ],
+   "note": "print outer face down"
+  },
+  "fgs_clamp": {
+   "material": "PETG",
+   "frame": "gripper",
+   "volume_cm3": 3.667,
+   "mass_g": 4.7,
+   "bbox_mm": [
+    33.1,
+    77.2,
+    10.0
+   ],
+   "note": "print flat (ring axis vertical)"
+  }
+ },
+ "mass": {
+  "per_finger_g": 53.2,
+  "stock_finger_below_interface_g": 37.8,
+  "enclosure_and_board_g": 24.2,
+  "added_total_g": 55.1,
+  "note": "stock finger: 27.82 cm\u00b3 below the interface \u00d7 1.36 g/cm\u00b3 implied by the MJCF tip mass"
+ },
+ "geometry": {
+  "contact_face_y": 17.6,
+  "tip_z": -74.2,
+  "pad_xz_mm": [
+   11.5,
+   17.35
+  ],
+  "pad_centre_z": -65.03,
+  "beam_mid_z": -62.85,
+  "finger_thickness_at_tip_mm": 15.3,
+  "stock_thickness_at_tip_mm": 6.0,
+  "stroke_per_finger_mm": 47.5
+ },
+ "interference": {
+  "rows": [
+   {
+    "q_mm": 0.0,
+    "a": "fgs_pad_left",
+    "b": "fgs_pad_right",
+    "overlap_mm3": 95.8
+   }
+  ],
+  "unexpected": [],
+  "stock_tips_overlap_at_q0_mm3": 422.6,
+  "note": "at q = 0 the pads meet exactly where the stock tips meet (the MJCF tips overlap at q = 0 too); the real gripper stops on contact"
+ },
+ "sections": [
+  {
+   "z": -9.5,
+   "area_mm2": 352.2,
+   "I_mm4": 3881.0,
+   "moment_Nm_at_500N": 27.76,
+   "sigma_MPa": 41.1
+  },
+  {
+   "z": -20.0,
+   "area_mm2": 227.5,
+   "I_mm4": 3009.0,
+   "moment_Nm_at_500N": 22.51,
+   "sigma_MPa": 47.1
+  },
+  {
+   "z": -30.0,
+   "area_mm2": 148.6,
+   "I_mm4": 1921.0,
+   "moment_Nm_at_500N": 17.51,
+   "sigma_MPa": 58.3
+  },
+  {
+   "z": -40.0,
+   "area_mm2": 146.1,
+   "I_mm4": 1839.0,
+   "moment_Nm_at_500N": 12.51,
+   "sigma_MPa": 44.2
+  },
+  {
+   "z": -51.35,
+   "area_mm2": 146.1,
+   "I_mm4": 1839.0,
+   "moment_Nm_at_500N": 6.84,
+   "sigma_MPa": 24.1
+  },
+  {
+   "z": -53.85,
+   "area_mm2": 127.2,
+   "I_mm4": 1360.0,
+   "moment_Nm_at_500N": 5.59,
+   "sigma_MPa": 23.0
+  }
+ ],
+ "fea": {
+  "load": "uniform",
+  "F_N": 100.0,
+  "k_N_per_mm": 4277.338338805839,
+  "uy_mm": -0.023379025010193212,
+  "eps_gauge_top": -0.0003103986869194774,
+  "eps_gauge_bottom": 0.0002154373577694515,
+  "bridge_mV_per_V": -0.5258360446889289,
+  "vm_max_beams_MPa": 51.37078029385005,
+  "s1_max_beams_MPa": 51.83157122566613,
+  "s3_min_beams_MPa": -47.47271814762081,
+  "vm_max_all_MPa": 51.37078029385005,
+  "n_elements": 144320,
+  "n_dofs": 582640,
+  "vm_max_at_yz": [
+   9.165925826289067,
+   -68.10881904510252
+  ],
+  "beam_rear_axial_MPa": -1.801491999374139,
+  "beam_front_axial_MPa": 1.8012597884764598,
+  "f_modes_Hz": [
+   4576.944896308097,
+   6286.404356387577,
+   19324.184723769446
+  ],
+  "position_sensitivity_pct": {
+   "top": -8.198481289217474,
+   "centre": -0.8715544671183295,
+   "bottom": 6.572150083517148
+  },
+  "edge_loads": {
+   "top": {
+    "vm_max_beams_MPa": 103.8827922453878,
+    "vm_max_at_yz": [
+     12.326320082177045,
+     -69.11124928235797
+    ]
+   },
+   "bottom": {
+    "vm_max_beams_MPa": 52.16361767951186,
+    "vm_max_at_yz": [
+     7.234074173710931,
+     -68.10881904510252
+    ]
+   }
+  },
+  "convergence": {
+   "bridge_coarse": -0.5257920736646828,
+   "bridge_fine": -0.5258360446889289,
+   "vm_coarse": 48.851955978994354,
+   "vm_fine": 51.37078029385005,
+   "k_coarse": 4222.648738172914,
+   "k_fine": 4277.338338805839
+  }
+ },
+ "strength": {
+  "vm_peak_at_500N_uniform_MPa": 256.9,
+  "safety_on_yield_500N_uniform": 1.96,
+  "vm_peak_at_500N_top_edge_MPa": 519.4,
+  "goodman_480N_repeated_uniform": 0.99
+ }
+}

@@ -1,0 +1,124 @@
+/* Design tokens: "instrument enclosure" palette. Cool greys, an ink-blue for actions,
+   and ISO safety red-on-yellow reserved for the e-stop. */
+
+:root {
+  color-scheme: light;
+  --paper: #edf0f2;
+  --surface: #ffffff;
+  --surface-2: #f5f7f8;
+  --surface-3: #e7ebee;
+  --ink: #16202b;
+  --ink-2: #384553;
+  --muted: #64717d;
+  --line: #c9d1d8;
+  --line-soft: #dfe4e8;
+
+  --primary: #1d3f91;
+  --primary-hover: #183477;
+  --primary-ink: #ffffff;
+  --primary-soft: #e2e8f6;
+
+  --estop: #d0261e;
+  --estop-ink: #ffffff;
+  --safety: #f2c230;
+
+  --ok: #1d7a4b;
+  --ok-soft: #dff0e6;
+  --warn: #a96400;
+  --warn-soft: #faedd6;
+  --err: #c0281f;
+  --err-soft: #f8e2df;
+  --idle: #5d6b78;
+  --idle-soft: #e4e8ec;
+
+  --s-op: #1d3f91;      /* operator squeeze */
+  --s-render: #c27200;  /* rendered resistance */
+  --s-grip: #23876a;    /* follower grip force */
+  --s-aux: #8a5cb8;
+
+  --shadow-pop: 0 10px 30px rgba(18, 28, 40, 0.16), 0 2px 6px rgba(18, 28, 40, 0.08);
+  --focus: 0 0 0 3px rgba(29, 63, 145, 0.35);
+
+  --r-panel: 8px;
+  --r-ctl: 5px;
+  --r-pill: 999px;
+
+  --font: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cond: "Barlow Semi Condensed", "Barlow", system-ui, sans-serif;
+
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 30px;
+
+  --nav-w: 84px;
+  --top-h: 60px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0f151c;
+    --surface: #172029;
+    --surface-2: #1c2630;
+    --surface-3: #24303b;
+    --ink: #e4e9ee;
+    --ink-2: #c0c9d2;
+    --muted: #8b97a3;
+    --line: #2d3946;
+    --line-soft: #222c37;
+    --primary: #86a7f4;
+    --primary-hover: #a1bbf7;
+    --primary-ink: #0d1a35;
+    --primary-soft: #1d2a47;
+    --estop: #e0342b;
+    --ok: #4fc18a;
+    --ok-soft: #173427;
+    --warn: #eaa53e;
+    --warn-soft: #3a2b13;
+    --err: #f26a60;
+    --err-soft: #3b1c1b;
+    --idle: #8d9aa6;
+    --idle-soft: #25303b;
+    --s-op: #86a7f4;
+    --s-render: #eaa53e;
+    --s-grip: #4fc18a;
+    --s-aux: #c29ae8;
+    --shadow-pop: 0 12px 34px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --focus: 0 0 0 3px rgba(134, 167, 244, 0.4);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0f151c;
+  --surface: #172029;
+  --surface-2: #1c2630;
+  --surface-3: #24303b;
+  --ink: #e4e9ee;
+  --ink-2: #c0c9d2;
+  --muted: #8b97a3;
+  --line: #2d3946;
+  --line-soft: #222c37;
+  --primary: #86a7f4;
+  --primary-hover: #a1bbf7;
+  --primary-ink: #0d1a35;
+  --primary-soft: #1d2a47;
+  --estop: #e0342b;
+  --ok: #4fc18a;
+  --ok-soft: #173427;
+  --warn: #eaa53e;
+  --warn-soft: #3a2b13;
+  --err: #f26a60;
+  --err-soft: #3b1c1b;
+  --idle: #8d9aa6;
+  --idle-soft: #25303b;
+  --s-op: #86a7f4;
+  --s-render: #eaa53e;
+  --s-grip: #4fc18a;
+  --s-aux: #c29ae8;
+  --shadow-pop: 0 12px 34px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --focus: 0 0 0 3px rgba(134, 167, 244, 0.4);
+}

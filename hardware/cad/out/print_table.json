@@ -1,0 +1,92 @@
+{
+  "housing_servo_half": {
+    "material": "PETG",
+    "orientation": "split face down",
+    "print_bbox_mm": [
+      93.4,
+      128.1,
+      25.4
+    ]
+  },
+  "housing_encoder_half": {
+    "material": "PETG",
+    "orientation": "split face down",
+    "print_bbox_mm": [
+      93.4,
+      128.1,
+      25.8
+    ]
+  },
+  "lever": {
+    "material": "PETG",
+    "orientation": "\u2212Y face (pocket opening) down",
+    "print_bbox_mm": [
+      34.1,
+      53.0,
+      16.2
+    ]
+  },
+  "blade": {
+    "material": "PETG",
+    "orientation": "\u2212Y face down",
+    "print_bbox_mm": [
+      20.1,
+      26.3,
+      29.0
+    ]
+  },
+  "blade_skin": {
+    "material": "TPU 95A",
+    "orientation": "\u2212Y edge down (thin shell; print slowly)",
+    "print_bbox_mm": [
+      9.4,
+      11.8,
+      28.4
+    ]
+  },
+  "drive_disc": {
+    "material": "PETG",
+    "orientation": "horn face down",
+    "print_bbox_mm": [
+      32.7,
+      18.0,
+      12.0
+    ]
+  },
+  "encoder_cover": {
+    "material": "PETG",
+    "orientation": "floor down, open side up",
+    "print_bbox_mm": [
+      26.6,
+      34.4,
+      7.0
+    ]
+  },
+  "button_cap_a": {
+    "material": "TPU 95A",
+    "orientation": "flange down",
+    "print_bbox_mm": [
+      7.5,
+      11.5,
+      5.0
+    ]
+  },
+  "button_cap_b": {
+    "material": "TPU 95A",
+    "orientation": "flange down",
+    "print_bbox_mm": [
+      7.5,
+      11.5,
+      5.0
+    ]
+  },
+  "mount_adapter": {
+    "material": "PETG",
+    "orientation": "flange face down",
+    "print_bbox_mm": [
+      43.5,
+      38.0,
+      11.0
+    ]
+  }
+}

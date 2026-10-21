@@ -1,0 +1,19 @@
+[Unit]
+Description=Teleop Station (bimanual YAM teleoperation server + UI)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__REPO__
+ExecStart=__REPO__/.venv/bin/station serve --host 0.0.0.0 --port 8000
+Restart=on-failure
+RestartSec=3
+# Real-time-ish scheduling for the control loops (workers inherit it)
+Nice=-5
+LimitRTPRIO=50
+LimitMEMLOCK=infinity
+
+[Install]
+WantedBy=multi-user.target
